@@ -19,99 +19,195 @@
             position: relative;
         }
 
-        /* 🎬 Client-Side Login Entry Animation */
+        /* 🌟 Surprise Button Container */
+        #surprise-btn-container {
+            position: relative;
+            z-index: 10;
+            transition: all 0.6s ease;
+        }
+
+        .luxury-btn {
+            background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11);
+            color: #000;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 10px 25px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .luxury-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.9);
+        }
+
+        /* 🎬 Main Luxury Card */
         .luxury-card {
-            max-width: 440px;
+            max-width: 420px;
             width: 85%;
-            background: rgba(20, 20, 20, 0.8);
-            padding: 35px 25px;
+            background: rgba(20, 20, 20, 0.85);
+            padding: 40px 30px;
             border-radius: 24px;
             border: 1px solid rgba(212, 175, 55, 0.4);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(212, 175, 55, 0.15);
             backdrop-filter: blur(25px);
             position: relative;
             z-index: 2;
-            
-            /* Login Box Popup Animation */
+            display: none;
             opacity: 0;
-            transform: translateY(40px) scale(0.95);
-            animation: loginEntrance 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            transform: translateY(30px) scale(0.95);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        @keyframes loginEntrance {
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        .luxury-card.reveal {
+            display: block;
+            opacity: 1;
+            transform: translateY(0) scale(1);
         }
 
+        /* 🎯 Highlight Glowing Circle Frame (Only this remains!) */
         .profile-frame {
-            width: 130px; height: 130px; margin: 0 auto 15px auto; border-radius: 50%; padding: 4px;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 25px auto;
+            border-radius: 50%;
+            padding: 5px;
             background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+            animation: ultraGlow 3s infinite alternate;
         }
-        .profile-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid #141414; }
-        
-        h1 { font-size: 1.4rem; font-weight: 300; letter-spacing: 3px; margin: 0 0 5px 0; color: #d4af37; }
-        .name { font-size: 2.6rem; font-weight: bold; letter-spacing: 3px; background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; display: block; }
-        
-        .video-box {
-            width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.35);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6); margin: 20px 0; background: #000;
+
+        @keyframes ultraGlow {
+            0% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
+            100% { box-shadow: 0 0 45px rgba(212, 175, 55, 1), 0 0 15px #ffe57f; }
         }
-        .video-box video { width: 100%; display: block; }
 
-        .note-box { background: rgba(212, 175, 55, 0.04); padding: 15px 20px; border-radius: 12px; border-left: 3px solid #d4af37; text-align: left; margin-top: 15px; }
-        .note-box p { font-size: 0.98rem; line-height: 1.6; color: #e0e0e0; margin: 0; font-style: italic; }
+        .profile-frame img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border-radius: 50%; 
+            border: 3px solid #141414; 
+        }
+        
+        h1 { font-size: 1.3rem; font-weight: 300; letter-spacing: 3px; margin: 0 0 5px 0; color: #d4af37; }
+        .name { font-size: 2.6rem; font-weight: bold; letter-spacing: 3px; background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 25px; display: block; }
+        
+        /* ✉️ Elegant Notes & Shayari Box */
+        .note-box { 
+            background: rgba(212, 175, 55, 0.04); 
+            padding: 20px; 
+            border-radius: 14px; 
+            border-left: 3px solid #d4af37; 
+            text-align: left; 
+            margin-top: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease 0.5s;
+        }
 
-        /* 🌹 Falling Real-like Golden Flower Petals */
+        .shayari-box {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border-radius: 14px;
+            border-right: 3px solid #ffe57f;
+            text-align: right;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease 0.9s;
+        }
+        
+        .luxury-card.reveal .note-box,
+        .luxury-card.reveal .shayari-box {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .note-box p, .shayari-box p { 
+            font-size: 1rem; 
+            line-height: 1.7; 
+            color: #e0e0e0; 
+            margin: 0; 
+            font-style: italic; 
+        }
+
+        /* 🌹 Falling Golden Rose Petals */
         .petal {
             position: absolute;
             background: radial-gradient(circle at 30% 30%, #ffdf7a 0%, #d4af37 60%, #9a7407 100%);
             border-radius: 50% 0 50% 50%;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.7;
+            opacity: 0.6;
             animation: fall infinite linear;
         }
 
         @keyframes fall {
-            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% { transform: translateY(110vh) translateX(100px) rotate(720deg); opacity: 0; }
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(110vh) translateX(80px) rotate(720deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Aesthetic Golden Flower Petals -->
-    <div class="petal" style="width: 15px; height: 12px; left: 10%; animation-duration: 8s; animation-delay: 0s;"></div>
-    <div class="petal" style="width: 22px; height: 18px; left: 25%; animation-duration: 12s; animation-delay: 2s; transform: rotate(15deg);"></div>
-    <div class="petal" style="width: 18px; height: 14px; left: 50%; animation-duration: 9s; animation-delay: 1s; transform: rotate(-30deg);"></div>
-    <div class="petal" style="width: 25px; height: 20px; left: 70%; animation-duration: 14s; animation-delay: 4s;"></div>
-    <div class="petal" style="width: 16px; height: 13px; left: 85%; animation-duration: 10s; animation-delay: 3s; transform: rotate(45deg);"></div>
+    <!-- Flower Petals Background -->
+    <div class="petal" style="width: 15px; height: 12px; left: 12%; animation-duration: 8s; animation-delay: 0s;"></div>
+    <div class="petal" style="width: 22px; height: 18px; left: 28%; animation-duration: 11s; animation-delay: 2s;"></div>
+    <div class="petal" style="width: 18px; height: 14px; left: 55%; animation-duration: 9s; animation-delay: 1s;"></div>
+    <div class="petal" style="width: 25px; height: 20px; left: 78%; animation-duration: 13s; animation-delay: 3s;"></div>
 
-    <div class="luxury-card">
-        <!-- Main Profile Picture -->
-        <div class="profile-frame"><img src="sana pic.jpeg" alt="Sana Khan"></div>
+    <!-- 1. SURPRISE BUTTON -->
+    <div id="surprise-btn-container">
+        <button class="luxury-btn" onclick="openSurprise()">✨ OPEN SURPRISE ✨</button>
+    </div>
+
+    <!-- 2. LUXURY CARD -->
+    <div class="luxury-card" id="main-card">
+        <!-- Highlight Goal Circle Photo Frame -->
+        <div class="profile-frame">
+            <img src="sana pic.jpeg" alt="Sana Khan">
+        </div>
         
         <h1>HAPPY BIRTHDAY</h1>
         <span class="name">SANA KHAN</span>
         
-        <!-- Video Player Box -->
-        <div class="video-box">
-            <video controls poster="sana pic.jpeg">
-                <source src="fbwsxikh_1791130061_39702074066.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <!-- Luxury College Note -->
+        <!-- Part 1: Birthday Wish Note -->
         <div class="note-box">
             <p>"To the most elegant friend from college classes to campus laughs, you bring so much grace and brilliance into our lives. Wishing you a luxury year ahead filled with endless success, beauty, and joy. Happy Birthday, Sana! ✨🎓"</p>
         </div>
+
+        <!-- Part 2: Luxury Aesthetic Shayari -->
+        <div class="shayari-box">
+            <p>"खुदा करे हर लम्हा आपके लिए हसीन हो जाए,<br>
+            आपकी आँखों में जो भी ख्वाब हो वो हकीकत हो जाए।<br>
+            मिले आपको ज़िंदगी की हर वो नायाब लक्ज़री,<br>
+            कि कामयाबी खुद आकर आपके कदमों में खो जाए। ✨🌹"</p>
+        </div>
     </div>
+
+    <script>
+        function openSurprise() {
+            const btnContainer = document.getElementById('surprise-btn-container');
+            const card = document.getElementById('main-card');
+
+            btnContainer.style.opacity = '0';
+            btnContainer.style.transform = 'scale(0.8)';
+            
+            setTimeout(() => {
+                btnContainer.style.display = 'none';
+                card.style.display = 'block';
+                card.offsetHeight; 
+                card.classList.add('reveal');
+            }, 500);
+        }
+    </script>
 
 </body>
 </html>
