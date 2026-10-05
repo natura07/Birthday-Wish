@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sana Khan ✨</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #2d251e 100%);
+            color: #f3e5ab;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .luxury-card {
+            max-width: 450px;
+            width: 85%;
+            background: rgba(25, 25, 25, 0.65);
+            padding: 40px 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(15px);
+            position: relative;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .luxury-card::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 18px;
+            pointer-events: none;
+        }
+        h1 {
+            font-size: 2.3rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212,175,55,0.5);
+        }
+        .name {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 4px;
+            background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            display: block;
+        }
+        p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .sparkle-icon {
+            font-size: 2rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+            animation: pulse 2.5s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; text-shadow: 0 0 15px rgba(212,175,55,0.8); }
+        }
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,229,127,0.8) 0%, rgba(212,175,55,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatUp 8s infinite linear;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) translateX(0) scale(0.5); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) translateX(50px) scale(1.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Aesthetic Particles -->
+    <div class="particle" style="width: 8px; height: 8px; left: 10%; animation-delay: 0s; animation-duration: 6s;"></div>
+    <div class="particle" style="width: 12px; height: 12px; left: 25%; animation-delay: 2s; animation-duration: 9s;"></div>
+    <div class="particle" style="width: 6px; height: 6px; left: 50%; animation-delay: 1s; animation-duration: 7s;"></div>
+    <div class="particle" style="width: 10px; height: 10px; left: 75%; animation-delay: 4s; animation-duration: 8s;"></div>
+    <div class="particle" style="width: 14px; height: 14px; left: 85%; animation-delay: 3s; animation-duration: 11s;"></div>
+
+    <div class="luxury-card">
+        <div class="sparkle-icon">✨🥂✨</div>
+        <h1>HAPPY BIRTHDAY</h1>
+        <span class="name">SANA KHAN</span>
+        <p>Wishing you a year as beautiful, elegant, and brilliant as you are. May your days be filled with endless joy, luxury, and laughter. ✨</p>
+    </div>
+
+</body>
+</html>
