@@ -7,505 +7,1280 @@
 <title>Happy Birthday Sana ❤️</title>
 
 <style>
+
+/* ================= BASIC ================= */
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffe6f0, #fff5d7);
     min-height: 100vh;
     overflow-x: hidden;
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212,175,55,0.16),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050505,
+            #15110c,
+            #050505
+        );
 }
+
+
+/* ================= OPENING ================= */
 
 #opening {
     min-height: 100vh;
+
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+
     padding: 20px;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(212,175,55,0.16),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(255,80,150,0.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #030303,
+            #17120c,
+            #050505
+        );
 }
+
+
+/* Background glow */
+
+#opening::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    top: -250px;
+    left: -220px;
+
+    border: 1px solid rgba(212,175,55,0.20);
+
+    box-shadow:
+        0 0 120px rgba(212,175,55,0.12);
+
+    pointer-events: none;
+}
+
+#opening::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    bottom: -230px;
+    right: -200px;
+
+    border: 1px solid rgba(212,175,55,0.15);
+
+    box-shadow:
+        0 0 120px rgba(212,175,55,0.10);
+
+    pointer-events: none;
+}
+
+
+/* ================= OPENING CARD ================= */
 
 .opening-box {
-    background: rgba(255,255,255,0.95);
-    padding: 35px 25px;
-    border-radius: 25px;
-    max-width: 600px;
-    width: 100%;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+
+    width: min(680px, 100%);
+
+    padding: 55px 38px;
+
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0.025)
+        );
+
+    border: 1px solid rgba(212,175,55,0.45);
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,0.70),
+        inset 0 0 45px rgba(255,255,255,0.025),
+        0 0 70px rgba(212,175,55,0.08);
+
+    animation: floatingCard 5s ease-in-out infinite;
 }
+
+
+/* Top gold line */
+
+.opening-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 180px;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d4af37,
+            #fff1a8,
+            #d4af37,
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px rgba(212,175,55,0.7);
+}
+
+
+/* Floating animation */
+
+@keyframes floatingCard {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* ================= LABEL ================= */
+
+.luxury-label {
+
+    display: inline-block;
+
+    padding: 8px 20px;
+
+    margin-bottom: 22px;
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(212,175,55,0.40);
+
+    background:
+        rgba(212,175,55,0.06);
+
+    color: #e7ca6b;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* ================= OPENING TITLE ================= */
 
 .opening-box h1 {
-    color: #e91e63;
-    font-size: 38px;
-    margin-bottom: 20px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(40px, 8vw, 68px);
+
+    line-height: 1.1;
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #f3d77a,
+            #fff8d6,
+            #d4af37,
+            #ffffff
+        );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: goldShine 6s linear infinite;
 }
+
+@keyframes goldShine {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 300% center;
+    }
+}
+
+
+/* ================= DIVIDER ================= */
+
+.divider {
+
+    width: 100px;
+
+    height: 1px;
+
+    margin: 0 auto 28px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d4af37,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px rgba(212,175,55,0.5);
+}
+
+
+/* ================= OPENING MESSAGE ================= */
 
 .opening-box p {
-    color: #555;
-    font-size: 18px;
-    line-height: 1.7;
+
+    max-width: 540px;
+
+    margin: auto;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size: 16px;
+
+    line-height: 1.9;
 }
+
+
+/* ================= OPEN BUTTON ================= */
 
 .open-btn {
-    margin-top: 20px;
-    padding: 14px 30px;
-    border: none;
-    border-radius: 30px;
-    background: #e91e63;
-    color: white;
-    font-size: 18px;
+
+    margin-top: 32px;
+
+    padding: 16px 36px;
+
+    border-radius: 50px;
+
+    border: 1px solid #f4db83;
+
     cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+
+    color: #17120a;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff2aa,
+            #d4af37,
+            #b88d25
+        );
+
+    box-shadow:
+        0 12px 40px rgba(212,175,55,0.25);
+
+    transition: 0.35s ease;
 }
+
+.open-btn:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+
+    box-shadow:
+        0 18px 50px rgba(212,175,55,0.45);
+}
+
+
+/* ================= MAIN ================= */
 
 #main {
+
     display: none;
+
     min-height: 100vh;
-    padding: 30px 15px 50px;
+
+    padding:
+        55px 15px 80px;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212,175,55,0.13),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050505,
+            #15110c,
+            #050505
+        );
 }
 
+
 .container {
-    max-width: 850px;
+
+    width: min(900px, 100%);
+
     margin: auto;
+
     text-align: center;
 }
 
+
+/* ================= MAIN TITLE ================= */
+
 .title {
-    color: #e91e63;
-    font-size: 42px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(40px, 7vw, 64px);
+
+    font-weight: normal;
+
+    line-height: 1.15;
+
+    margin-bottom: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #d4af37,
+            #fff,
+            #d4af37
+        );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: goldShine 6s linear infinite;
 }
+
 
 .party {
-    font-size: 20px;
-    color: #555;
-    margin-bottom: 25px;
+
+    margin-bottom: 35px;
+
+    color:
+        rgba(255,255,255,0.60);
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
 }
 
+
+/* ================= SLIDES ================= */
+
 .slide {
+
     display: none;
-    background: rgba(255,255,255,0.95);
-    padding: 25px;
-    border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+
+    position: relative;
+
+    padding:
+        38px 25px 32px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.09),
+            rgba(255,255,255,0.025)
+        );
+
+    border:
+        1px solid rgba(212,175,55,0.32);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,0.60),
+        inset 0 0 50px rgba(255,255,255,0.015);
+
+    animation:
+        slideAppear 0.6s ease;
 }
+
 
 .slide.active {
     display: block;
 }
 
-.slide h2 {
-    color: #e91e63;
-    font-size: 28px;
+
+@keyframes slideAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
 }
+
+
+/* Slide gold line */
+
+.slide::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 130px;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d4af37,
+            #fff1a8,
+            #d4af37,
+            transparent
+        );
+}
+
+
+/* ================= SLIDE HEADING ================= */
+
+.slide h2 {
+
+    margin-bottom: 25px;
+
+    color: #efd77d;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(26px, 5vw, 38px);
+
+    font-weight: normal;
+}
+
+
+/* ================= PHOTOS ================= */
+
+.photo {
+
+    width: min(620px, 100%);
+
+    max-height: 650px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin:
+        10px auto 30px;
+
+    padding: 6px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #fff1a8,
+            #8f6b18,
+            #d4af37
+        );
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.65),
+        0 0 35px rgba(212,175,55,0.10);
+}
+
+
+/* ================= SLIDE TEXT ================= */
 
 .slide p {
-    color: #444;
-    font-size: 18px;
-    line-height: 1.8;
+
+    max-width: 650px;
+
+    margin: auto;
+
+    color:
+        rgba(255,255,255,0.75);
+
+    font-size: 16px;
+
+    line-height: 1.9;
 }
 
-/* PHOTOS */
-.photo {
-    width: 100%;
-    max-width: 600px;
-    max-height: 650px;
-    object-fit: contain;
-    border-radius: 18px;
-    margin: 15px auto 25px;
-    display: block;
-}
 
-/* VIDEO */
+/* ================= VIDEO ================= */
+
 video {
+
     width: 100%;
-    max-width: 750px;
-    border-radius: 18px;
-    background: #000;
+
+    max-width: 780px;
+
+    display: block;
+
+    margin:
+        10px auto 30px;
+
+    padding: 5px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #fff1a8,
+            #8f6b18
+        );
+
+    box-shadow:
+        0 25px 65px rgba(0,0,0,0.65);
 }
 
-/* BUTTONS */
+
+/* ================= NAVIGATION ================= */
+
 .navigation {
+
     margin-top: 25px;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
-    gap: 15px;
+
+    gap: 18px;
+
     flex-wrap: wrap;
 }
 
+
 .nav-btn {
-    padding: 12px 22px;
-    border: none;
-    border-radius: 25px;
-    background: #e91e63;
-    color: white;
-    font-size: 16px;
+
+    padding:
+        13px 25px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid rgba(212,175,55,0.40);
+
+    background:
+        rgba(212,175,55,0.07);
+
+    color: #f1d77c;
+
+    font-size: 14px;
+
     cursor: pointer;
+
+    transition: 0.3s ease;
 }
+
+
+.nav-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(212,175,55,0.18);
+
+    box-shadow:
+        0 10px 30px rgba(212,175,55,0.15);
+}
+
 
 #counter {
-    font-weight: bold;
-    color: #555;
+
+    min-width: 50px;
+
+    color:
+        rgba(255,255,255,0.55);
+
+    font-size: 14px;
 }
 
-/* MUSIC BUTTON */
+
+/* ================= MUSIC BUTTON ================= */
+
 #musicButton {
+
     position: fixed;
-    right: 18px;
-    bottom: 18px;
-    z-index: 999;
-    border: none;
+
+    right: 22px;
+    bottom: 22px;
+
+    width: 56px;
+    height: 56px;
+
     border-radius: 50%;
-    width: 52px;
-    height: 52px;
-    font-size: 22px;
+
+    border:
+        1px solid rgba(212,175,55,0.55);
+
+    background:
+        rgba(10,10,10,0.90);
+
+    color: #f2d77b;
+
+    font-size: 21px;
+
     cursor: pointer;
-    background: white;
-    box-shadow: 0 5px 18px rgba(0,0,0,0.2);
-}
 
-/* CONFETTI */
-.confetti {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    top: -10px;
     z-index: 9999;
-    pointer-events: none;
-    animation: fall linear forwards;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.55),
+        0 0 25px rgba(212,175,55,0.12);
+
+    transition: 0.3s ease;
 }
 
-@keyframes fall {
+
+#musicButton:hover {
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 10px 40px rgba(212,175,55,0.25);
+}
+
+
+/* ================= CONFETTI ================= */
+
+.confetti {
+
+    position: fixed;
+
+    top: -20px;
+
+    width: 7px;
+    height: 13px;
+
+    z-index: 99999;
+
+    pointer-events: none;
+
+    animation:
+        confettiFall linear forwards;
+}
+
+
+@keyframes confettiFall {
+
     to {
-        transform: translateY(110vh) rotate(720deg);
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity: 0;
     }
 }
 
-@media (max-width:600px) {
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    #opening {
+        padding: 15px;
+    }
+
+    .opening-box {
+        padding:
+            45px 22px;
+
+        border-radius: 27px;
+    }
 
     .opening-box h1 {
-        font-size: 30px;
+        font-size: 40px;
     }
 
     .opening-box p {
-        font-size: 16px;
+        font-size: 15px;
+        line-height: 1.8;
     }
 
-    .title {
-        font-size: 32px;
+    .open-btn {
+        padding:
+            15px 28px;
+    }
+
+    #main {
+        padding:
+            35px 12px 70px;
     }
 
     .slide {
-        padding: 18px;
-    }
+        padding:
+            32px 16px 27px;
 
-    .slide h2 {
-        font-size: 24px;
+        border-radius: 25px;
     }
 
     .slide p {
-        font-size: 16px;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .party {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .nav-btn {
+        padding:
+            11px 18px;
+    }
+
+    #musicButton {
+        width: 50px;
+        height: 50px;
+
+        right: 15px;
+        bottom: 15px;
     }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- MUSIC -->
-<audio id="birthdayMusic" loop preload="auto">
+
+<!-- =====================================================
+     BACKGROUND MUSIC
+===================================================== -->
+
+<audio
+    id="birthdayMusic"
+    loop
+    preload="auto">
+
     <source
         src="s%E2%80%8B%E2%80%8Bahiba-birthday.mp3.mpeg"
         type="audio/mpeg">
+
 </audio>
 
 
-<!-- OPENING -->
+
+<!-- =====================================================
+     OPENING SCREEN
+===================================================== -->
+
 <section id="opening">
 
-<div class="opening-box">
+    <div class="opening-box">
 
-<h1>🎂 Happy Birthday Sana! ❤️</h1>
+        <div class="luxury-label">
+            ✦ A LITTLE SURPRISE ✦
+        </div>
 
-<p>
-Hi Sana! 👋
-<br><br>
 
-I'm Sahil. 😊
-<br><br>
+        <h1>
+            Happy Birthday Sana ❤️
+        </h1>
 
-This little surprise is just a small way
-to wish you on your special day. ✨
 
-<br>
-I hope it brings a smile to your face. ❤️
+        <div class="divider"></div>
 
-<br><br>
 
-And yes… ek baat aur! 😄
+        <p>
 
-<br>
+            Hi Sana! 👋
 
-Birthday ki party toh banti hai 🎂😂
+            <br><br>
 
-<br>
+            I'm Sahil. 😊
 
-So, meri birthday treat pending hai…
-<br>
-don't forget! 😉🍕
+            <br><br>
 
-</p>
+            This little surprise is just a small way
+            to wish you on your special day. ✨
 
-<button class="open-btn" onclick="openSurprise()">
-💝 Open Your Surprise
-</button>
+            <br>
 
-</div>
+            I hope it brings a smile to your face. ❤️
+
+            <br><br>
+
+            And yes… ek baat aur! 😄
+
+            <br>
+
+            Birthday ki party toh banti hai 🎂😂
+
+            <br>
+
+            So, meri birthday treat pending hai…
+
+            <br>
+
+            don't forget! 😉🍕
+
+        </p>
+
+
+        <button
+            class="open-btn"
+            onclick="openSurprise()">
+
+            ✨ Open Your Surprise ✨
+
+        </button>
+
+    </div>
 
 </section>
 
 
-<!-- MAIN -->
+
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
 <section id="main">
 
-<div class="container">
-
-<h1 class="title">
-🎉 Happy Birthday Sana! 🎂❤️
-</h1>
-
-<div class="party">
-Have a beautiful and wonderful day! ✨
-</div>
+    <div class="container">
 
 
-<!-- 1ST PHOTO -->
-<div class="slide active">
-
-<h2>🌸 A Little Birthday Wish 🌸</h2>
-
-<img
-src="sana pic.jpeg"
-class="photo"
-alt="Sana">
-
-<p>
-Wishing you a very Happy Birthday! 🎂❤️
-
-<br><br>
-
-May your day be filled with happiness,
-smiles and lots of beautiful moments. ✨
-
-<br><br>
-
-Keep smiling and enjoy your special day! 😊
-</p>
-
-</div>
+        <h1 class="title">
+            Happy Birthday Sana 🎂❤️
+        </h1>
 
 
-<!-- 2ND PHOTO -->
-<div class="slide">
-
-<h2>✨ Some Beautiful Moments ✨</h2>
-
-<img
-src="sana 01.PNG"
-class="photo"
-alt="Sana">
-
-<p>
-Hope this birthday brings you
-many reasons to smile. ❤️
-
-<br><br>
-
-Stay happy, stay positive
-and keep enjoying every little moment. 🌸
-</p>
-
-</div>
+        <div class="party">
+            A SPECIAL DAY • A SPECIAL PERSON • A LITTLE SURPRISE ✨
+        </div>
 
 
-<!-- 3RD PHOTO -->
-<div class="slide">
 
-<h2>💌 One More Thing...</h2>
+        <!-- =================================================
+             PHOTO 1
+        ================================================== -->
 
-<img
-src="sana 02.PNG"
-class="photo"
-alt="Sana">
+        <div class="slide active">
 
-<p>
-
-Sometimes you meet someone and
-talking to them just feels nice. ❤️
-
-<br><br>
-
-Talking to you has felt a little like that.
-
-<br><br>
-
-It's just the beginning,
-and I hope there are many more
-good conversations and beautiful memories
-ahead. ✨
-
-<br><br>
-
-Stay happy, keep smiling! 😊
-
-<br><br>
-
-<b>
-Happy Birthday! 🎂❤️
-</b>
-
-</p>
-
-</div>
+            <h2>
+                🌸 A Little Birthday Wish 🌸
+            </h2>
 
 
-<!-- 4TH VIDEO -->
-<div class="slide">
-
-<h2>🎬 A Little Surprise For You ❤️</h2>
-
-<video
-id="birthdayVideo"
-controls
-playsinline
-preload="auto">
-
-<source
-src="flwsxnkh__1791130061_39702074066.mp4"
-type="video/mp4">
-
-Your browser does not support video.
-
-</video>
-
-<p>
-
-Hope you liked this little surprise! ❤️
-
-<br><br>
-
-Once again...
-
-<br>
-
-<b>
-Happy Birthday Sana! 🎂🎉❤️
-</b>
-
-</p>
-
-</div>
+            <img
+                src="sana pic.jpeg"
+                class="photo"
+                alt="Sana">
 
 
-<!-- NAVIGATION -->
-<div class="navigation">
+            <p>
 
-<button
-class="nav-btn"
-onclick="changeSlide(-1)">
-⬅️ Previous
-</button>
+                Wishing you a very Happy Birthday! 🎂❤️
 
-<span id="counter">
-1 / 4
-</span>
+                <br><br>
 
-<button
-class="nav-btn"
-onclick="changeSlide(1)">
-Next ➡️
-</button>
+                May your day be filled with happiness,
+                smiles and lots of beautiful moments. ✨
 
-</div>
+                <br><br>
 
-</div>
+                Keep smiling and enjoy your special day! 😊
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PHOTO 2
+        ================================================== -->
+
+        <div class="slide">
+
+            <h2>
+                ✨ Beautiful Moments ✨
+            </h2>
+
+
+            <img
+                src="sana 01.PNG"
+                class="photo"
+                alt="Sana">
+
+
+            <p>
+
+                Hope this birthday brings you
+                many reasons to smile. ❤️
+
+                <br><br>
+
+                Stay happy, stay positive
+                and keep enjoying every little moment. 🌸
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PHOTO 3
+        ================================================== -->
+
+        <div class="slide">
+
+            <h2>
+                💌 One More Thing...
+            </h2>
+
+
+            <img
+                src="sana 02.PNG"
+                class="photo"
+                alt="Sana">
+
+
+            <p>
+
+                Sometimes you meet someone and
+                talking to them just feels nice. ❤️
+
+                <br><br>
+
+                Talking to you has felt a little like that.
+
+                <br><br>
+
+                It's just the beginning,
+                and I hope there are many more
+                good conversations and beautiful memories
+                ahead. ✨
+
+                <br><br>
+
+                Stay happy, keep smiling! 😊
+
+                <br><br>
+
+                <b>
+                    Happy Birthday! 🎂❤️
+                </b>
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             VIDEO
+        ================================================== -->
+
+        <div class="slide">
+
+            <h2>
+                🎬 A Little Surprise For You ❤️
+            </h2>
+
+
+            <video
+                id="birthdayVideo"
+                controls
+                playsinline
+                preload="auto">
+
+                <source
+                    src="flwsxnkh__1791130061_39702074066.mp4"
+                    type="video/mp4">
+
+                Your browser does not support video.
+
+            </video>
+
+
+            <p>
+
+                Hope you liked this little surprise! ❤️
+
+                <br><br>
+
+                Once again...
+
+                <br><br>
+
+                <b>
+                    Happy Birthday Sana! 🎂🎉❤️
+                </b>
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
+        <div class="navigation">
+
+            <button
+                class="nav-btn"
+                onclick="changeSlide(-1)">
+
+                ← Previous
+
+            </button>
+
+
+            <span id="counter">
+                1 / 4
+            </span>
+
+
+            <button
+                class="nav-btn"
+                onclick="changeSlide(1)">
+
+                Next →
+
+            </button>
+
+        </div>
+
+    </div>
+
 </section>
 
 
-<!-- MUSIC BUTTON -->
+
+<!-- =====================================================
+     MUSIC BUTTON
+===================================================== -->
+
 <button
-id="musicButton"
-onclick="toggleMusic()"
-title="Music">
-🔊
+    id="musicButton"
+    onclick="toggleMusic()"
+    title="Music">
+
+    🔊
+
 </button>
+
 
 
 <script>
 
+/* =====================================================
+   VARIABLES
+===================================================== */
+
 let currentSlide = 1;
+
 const totalSlides = 4;
 
 const music =
-document.getElementById("birthdayMusic");
+    document.getElementById("birthdayMusic");
 
 const video =
-document.getElementById("birthdayVideo");
+    document.getElementById("birthdayVideo");
 
 const musicButton =
-document.getElementById("musicButton");
+    document.getElementById("musicButton");
 
 
-/* OPEN SURPRISE */
+/* =====================================================
+   OPEN SURPRISE
+===================================================== */
 
 function openSurprise() {
 
-    document.getElementById("opening").style.display = "none";
+    document.getElementById("opening")
+        .style.display = "none";
 
-    document.getElementById("main").style.display = "block";
+    document.getElementById("main")
+        .style.display = "block";
+
+
+    /* CONFETTI */
 
     createConfetti();
+
+
+    /* MUSIC */
 
     music.volume = 0.5;
 
     music.play()
-    .then(function() {
-        musicButton.innerText = "🔊";
-    })
-    .catch(function(error) {
+        .then(function() {
 
-        console.log("Music error:", error);
+            musicButton.innerText = "🔊";
 
-        musicButton.innerText = "🎵";
+        })
+        .catch(function(error) {
 
-    });
+            console.log(
+                "Music could not start:",
+                error
+            );
+
+            musicButton.innerText = "🎵";
+
+        });
 }
 
 
-/* CHANGE SLIDE */
+/* =====================================================
+   CHANGE SLIDE
+===================================================== */
 
 function changeSlide(direction) {
 
     currentSlide += direction;
 
+
     if (currentSlide > totalSlides) {
+
         currentSlide = 1;
+
     }
+
 
     if (currentSlide < 1) {
+
         currentSlide = totalSlides;
+
     }
 
+
     const slides =
-    document.querySelectorAll(".slide");
+        document.querySelectorAll(".slide");
+
 
     slides.forEach(function(slide) {
+
         slide.classList.remove("active");
+
     });
 
-    slides[currentSlide - 1].classList.add("active");
+
+    slides[currentSlide - 1]
+        .classList.add("active");
 
 
     /* VIDEO */
@@ -515,11 +1290,14 @@ function changeSlide(direction) {
         video.currentTime = 0;
 
         video.play()
-        .catch(function(error) {
+            .catch(function(error) {
 
-            console.log("Video autoplay blocked:", error);
+                console.log(
+                    "Video autoplay blocked:",
+                    error
+                );
 
-        });
+            });
 
     } else {
 
@@ -527,25 +1305,42 @@ function changeSlide(direction) {
 
     }
 
-    /* MUSIC NEVER STOPS */
 
-    document.getElementById("counter").innerText =
-    currentSlide + " / " + totalSlides;
+    /*
+       IMPORTANT:
+       BACKGROUND MUSIC CONTINUES
+       EVEN WHEN VIDEO IS PLAYING.
+    */
+
+
+    document.getElementById("counter")
+        .innerText =
+        currentSlide + " / " + totalSlides;
 }
 
 
-/* MUSIC ON/OFF */
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
 
 function toggleMusic() {
 
     if (music.paused) {
 
         music.play()
-        .then(function() {
+            .then(function() {
 
-            musicButton.innerText = "🔊";
+                musicButton.innerText = "🔊";
 
-        });
+            })
+            .catch(function(error) {
+
+                console.log(
+                    "Music error:",
+                    error
+                );
+
+            });
 
     } else {
 
@@ -557,53 +1352,72 @@ function toggleMusic() {
 }
 
 
-/* CONFETTI */
+/* =====================================================
+   CONFETTI
+===================================================== */
 
 function createConfetti() {
 
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 100; i++) {
 
         const confetti =
-        document.createElement("div");
+            document.createElement("div");
+
 
         confetti.classList.add("confetti");
 
+
         confetti.style.left =
-        Math.random() * 100 + "vw";
+            Math.random() * 100 + "vw";
+
 
         confetti.style.animationDuration =
-        (Math.random() * 3 + 2) + "s";
+            (Math.random() * 3 + 3) + "s";
+
 
         confetti.style.animationDelay =
-        Math.random() * 2 + "s";
+            Math.random() * 2 + "s";
+
 
         confetti.style.background =
-        getRandomColor();
+            getRandomColor();
+
 
         document.body.appendChild(confetti);
 
+
         setTimeout(function() {
+
             confetti.remove();
-        }, 6000);
+
+        }, 8000);
+
     }
 }
 
 
-/* CONFETTI COLORS */
+/* =====================================================
+   CONFETTI COLORS
+===================================================== */
 
 function getRandomColor() {
 
     const colors = [
-        "#ff4081",
-        "#ffd54f",
-        "#7c4dff",
-        "#00bcd4",
-        "#4caf50",
-        "#ff5722"
+
+        "#d4af37",
+        "#f5df8a",
+        "#ffffff",
+        "#ff80ab",
+        "#e91e63",
+        "#ffd54f"
+
     ];
 
+
     return colors[
-        Math.floor(Math.random() * colors.length)
+        Math.floor(
+            Math.random() * colors.length
+        )
     ];
 }
 
