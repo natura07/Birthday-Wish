@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Playfair Display', 'Georgia', serif;
-            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #2d251e 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #17120e 50%, #241911 100%);
             color: #f3e5ab;
             text-align: center;
             margin: 0;
@@ -15,60 +15,91 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
-            padding: 20px 0;
+            overflow: hidden;
+            position: relative;
         }
+
+        /* 🎬 Client-Side Login Entry Animation */
         .luxury-card {
             max-width: 440px;
             width: 85%;
-            background: rgba(25, 25, 25, 0.75);
-            padding: 30px 25px;
+            background: rgba(20, 20, 20, 0.8);
+            padding: 35px 25px;
             border-radius: 24px;
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.15);
-            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(212, 175, 55, 0.15);
+            backdrop-filter: blur(25px);
             position: relative;
+            z-index: 2;
+            
+            /* Login Box Popup Animation */
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            animation: loginEntrance 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
+
+        @keyframes loginEntrance {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
         .profile-frame {
-            width: 140px; height: 140px; margin: 0 auto 15px auto; border-radius: 50%; padding: 4px;
+            width: 130px; height: 130px; margin: 0 auto 15px auto; border-radius: 50%; padding: 4px;
             background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
         }
-        .profile-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid #1a1a1a; }
-        h1 { font-size: 1.5rem; font-weight: 300; letter-spacing: 2px; margin: 0 0 5px 0; color: #d4af37; }
-        .name { font-size: 2.5rem; font-weight: bold; letter-spacing: 3px; background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; display: block; }
+        .profile-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid #141414; }
+        
+        h1 { font-size: 1.4rem; font-weight: 300; letter-spacing: 3px; margin: 0 0 5px 0; color: #d4af37; }
+        .name { font-size: 2.6rem; font-weight: bold; letter-spacing: 3px; background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; display: block; }
         
         .video-box {
-            width: 100%;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin: 15px 0;
-            background: #000;
+            width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); margin: 20px 0; background: #000;
         }
-        .video-box video {
-            width: 100%;
-            display: block;
+        .video-box video { width: 100%; display: block; }
+
+        .note-box { background: rgba(212, 175, 55, 0.04); padding: 15px 20px; border-radius: 12px; border-left: 3px solid #d4af37; text-align: left; margin-top: 15px; }
+        .note-box p { font-size: 0.98rem; line-height: 1.6; color: #e0e0e0; margin: 0; font-style: italic; }
+
+        /* 🌹 Falling Real-like Golden Flower Petals */
+        .petal {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, #ffdf7a 0%, #d4af37 60%, #9a7407 100%);
+            border-radius: 50% 0 50% 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.7;
+            animation: fall infinite linear;
         }
 
-        .note-box { background: rgba(212, 175, 55, 0.05); padding: 15px 20px; border-radius: 12px; border-left: 3px solid #d4af37; text-align: left; margin-top: 15px; }
-        .note-box p { font-size: 1rem; line-height: 1.6; color: #e0e0e0; margin: 0; font-style: italic; }
-        .particle { position: absolute; background: radial-gradient(circle, rgba(255,229,127,0.8) 0%, rgba(212,175,55,0) 70%); border-radius: 50%; pointer-events: none; animation: floatUp 8s infinite linear; }
-        @keyframes floatUp { 0% { transform: translateY(80vh) scale(0.5); opacity: 0; } 50% { opacity: 0.6; } 100% { transform: translateY(-10vh) scale(1.2); opacity: 0; } }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(110vh) translateX(100px) rotate(720deg); opacity: 0; }
+        }
     </style>
 </head>
 <body>
-    <div class="particle" style="width: 8px; height: 8px; left: 15%; animation-duration: 7s;"></div>
-    <div class="particle" style="width: 12px; height: 12px; left: 75%; animation-duration: 10s;"></div>
+
+    <!-- Aesthetic Golden Flower Petals -->
+    <div class="petal" style="width: 15px; height: 12px; left: 10%; animation-duration: 8s; animation-delay: 0s;"></div>
+    <div class="petal" style="width: 22px; height: 18px; left: 25%; animation-duration: 12s; animation-delay: 2s; transform: rotate(15deg);"></div>
+    <div class="petal" style="width: 18px; height: 14px; left: 50%; animation-duration: 9s; animation-delay: 1s; transform: rotate(-30deg);"></div>
+    <div class="petal" style="width: 25px; height: 20px; left: 70%; animation-duration: 14s; animation-delay: 4s;"></div>
+    <div class="petal" style="width: 16px; height: 13px; left: 85%; animation-duration: 10s; animation-delay: 3s; transform: rotate(45deg);"></div>
 
     <div class="luxury-card">
-        <!-- Main profile picture -->
+        <!-- Main Profile Picture -->
         <div class="profile-frame"><img src="sana pic.jpeg" alt="Sana Khan"></div>
+        
         <h1>HAPPY BIRTHDAY</h1>
         <span class="name">SANA KHAN</span>
         
-        <!-- Video Box -->
+        <!-- Video Player Box -->
         <div class="video-box">
             <video controls poster="sana pic.jpeg">
                 <source src="fbwsxikh_1791130061_39702074066.mp4" type="video/mp4">
@@ -76,10 +107,11 @@
             </video>
         </div>
 
-        <!-- Luxury College Friend Note -->
+        <!-- Luxury College Note -->
         <div class="note-box">
             <p>"To the most elegant friend from college classes to campus laughs, you bring so much grace and brilliance into our lives. Wishing you a luxury year ahead filled with endless success, beauty, and joy. Happy Birthday, Sana! ✨🎓"</p>
         </div>
     </div>
+
 </body>
 </html>
