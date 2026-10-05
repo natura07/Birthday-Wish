@@ -1,205 +1,738 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Sana Khan ✨</title>
-    <!-- Luxury Fonts Integration -->
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: radial-gradient(circle at center, #1c140e 0%, #0d0a08 60%, #050505 100%);
-            color: #f7e7b4;
-            text-align: center;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Gold Dust Background Effect */
-        body::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(212, 175, 55, 0.2) 1px, transparent 1px);
-            background-size: 40px 40px; animation: goldDust 10s linear infinite; opacity: 0.6; z-index: 1;
-        }
-        @keyframes goldDust { 0% { background-position: 0 0; } 100% { background-position: 40px 80px; } }
+<title>Happy Birthday Sana ❤️</title>
 
-        /* Initial Surprise Screen */
-        #surprise-btn-container {
-            position: relative; z-index: 10; transition: all 0.6s ease;
-        }
-        .luxury-btn {
-            background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11); color: #000; border: none;
-            padding: 18px 40px; font-size: 1.2rem; font-weight: bold; letter-spacing: 2px;
-            border-radius: 50px; cursor: pointer; box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-            font-family: 'Cinzel', serif; transition: all 0.3s ease;
-        }
-        .luxury-btn:hover { transform: scale(1.05); box-shadow: 0 0 35px rgba(212, 175, 55, 0.9); }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-        /* Main Luxury Card Container */
-        .luxury-card {
-            max-width: 430px; width: 85%;
-            background: linear-gradient(145deg, rgba(20, 18, 16, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
-            padding: 40px 25px; border-radius: 30px; border: 1px solid rgba(212, 175, 55, 0.35);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.95); position: relative; z-index: 2;
-            display: none; opacity: 0; transform: translateY(30px); transition: all 1s ease;
-        }
-        .luxury-card.reveal { display: block; opacity: 1; transform: translateY(0); }
+<style>
 
-        /* Glowing Circular Profile Frame */
-        .profile-frame {
-            width: 140px; height: 140px; margin: 0 auto 20px auto; border-radius: 50%; padding: 4px;
-            background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11); box-shadow: 0 0 35px rgba(212, 175, 55, 0.7);
-        }
-        .profile-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid #0d0a08; }
-        
-        h1 { font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 4px; margin: 0; color: #d4af37; }
-        .name { font-family: 'Cinzel', serif; font-size: 2.3rem; font-weight: 700; letter-spacing: 3px; background: linear-gradient(45deg, #ffe57f, #d4af37, #b8860b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; display: block; }
-        
-        /* Slides Logic */
-        .slide { display: none; animation: slideReveal 0.6s ease-in-out forwards; }
-        .slide.active { display: block; }
-        @keyframes slideReveal { from { opacity: 0; } to { opacity: 1; } }
+* {
+    box-sizing: border-box;
+}
 
-        /* Premium Video Box */
-        .video-box {
-            width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6); margin: 15px 0; background: #000;
-        }
-        .video-box video { width: 100%; display: block; }
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    background:
+        radial-gradient(circle at 20% 20%, #4b1835 0%, transparent 35%),
+        radial-gradient(circle at 80% 80%, #32133e 0%, transparent 35%),
+        linear-gradient(135deg, #09050c, #1b0a16, #08050b);
+    overflow-x: hidden;
+}
 
-        .note-box, .shayari-box { 
-            background: rgba(212, 175, 55, 0.03); padding: 20px; border-radius: 16px; 
-            border: 1px solid rgba(212, 175, 55, 0.15); margin-top: 15px;
-        }
-        .note-box { border-left: 4px solid #d4af37; text-align: left; }
-        .shayari-box { border-right: 4px solid #ffe57f; text-align: center; }
+/* GOLDEN PARTICLES */
 
-        .note-box p { font-size: 0.95rem; line-height: 1.6; color: #e6e6e6; margin: 0; }
-        .shayari-box p { font-size: 1.1rem; line-height: 2; color: #fff0c7; margin: 0; font-style: italic; }
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(#e9c46a 1px, transparent 1px),
+        radial-gradient(#fff 1px, transparent 1px);
+    background-size: 55px 55px, 90px 90px;
+    opacity: 0.15;
+    animation: stars 12s linear infinite;
+}
 
-        /* Navigation Buttons */
-        .btn-container { margin-top: 25px; display: flex; justify-content: center; gap: 20px; }
-        .nav-btn {
-            background: transparent; color: #d4af37; border: 1px solid rgba(212, 175, 55, 0.5);
-            padding: 10px 25px; font-size: 0.8rem; letter-spacing: 2px; border-radius: 50px;
-            cursor: pointer; transition: all 0.4s ease; text-transform: uppercase;
-        }
-        .nav-btn:hover { background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11); color: #000; border-color: transparent; }
+@keyframes stars {
+    from {
+        background-position: 0 0, 0 0;
+    }
+    to {
+        background-position: 100px 100px, -100px 80px;
+    }
+}
 
-        /* Falling Rose Petals */
-        .petal {
-            position: absolute; background: radial-gradient(circle at 35% 35%, #ffe699 0%, #d4af37 70%, #8a6405 100%);
-            border-radius: 50% 0 50% 50%; pointer-events: none; z-index: 1; opacity: 0.5; animation: fall infinite linear;
-        }
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.6; }
-            100% { transform: translateY(110vh) translateX(50px) rotate(540deg); opacity: 0; }
-        }
-    </style>
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    pointer-events: none;
+    animation: floatHeart 7s linear infinite;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* OPEN BUTTON */
+
+#opening {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+.open-btn {
+    padding: 18px 35px;
+    border: 1px solid #e7c76b;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #f8d778, #b88622, #f5d477);
+    color: #160e05;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow:
+        0 0 20px rgba(231,199,107,0.5),
+        0 10px 40px rgba(0,0,0,0.6);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 40px rgba(231,199,107,0.8);
+    }
+}
+
+/* MAIN CARD */
+
+#main {
+    display: none;
+    min-height: 100vh;
+    padding: 35px 15px;
+    position: relative;
+    z-index: 3;
+}
+
+.card {
+    width: 100%;
+    max-width: 470px;
+    margin: auto;
+    padding: 30px 22px;
+    text-align: center;
+
+    background: rgba(15, 10, 15, 0.92);
+
+    border: 1px solid rgba(231,199,107,0.45);
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,0.8),
+        0 0 40px rgba(231,199,107,0.08);
+
+    animation: cardIn 1s ease;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* PHOTO */
+
+.photo-frame {
+    width: 155px;
+    height: 155px;
+    margin: 0 auto 20px;
+
+    padding: 5px;
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #fff0a6,
+        #d4af37,
+        #8d6410,
+        #f8df80
+    );
+
+    box-shadow:
+        0 0 25px rgba(212,175,55,0.6),
+        0 0 60px rgba(212,175,55,0.15);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #120c10;
+}
+
+/* HEADINGS */
+
+.small-title {
+    color: #e7c76b;
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.name {
+    display: block;
+    margin: 8px 0 22px;
+
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    background: linear-gradient(
+        90deg,
+        #fff0a6,
+        #d4af37,
+        #fff0a6
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* SLIDES */
+
+.slide {
+    display: none;
+    animation: slideIn 0.7s ease;
+}
+
+.slide.active {
+    display: block;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* VIDEO */
+
+.video-box {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(231,199,107,0.3);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+    margin-bottom: 20px;
+    background: #000;
+}
+
+.video-box video {
+    width: 100%;
+    display: block;
+}
+
+/* MESSAGE */
+
+.message {
+    padding: 20px;
+    border-radius: 18px;
+
+    background: rgba(212,175,55,0.05);
+    border-left: 4px solid #d4af37;
+
+    color: #eee;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* SHAYARI */
+
+.shayari {
+    padding: 25px 18px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(212,175,55,0.08),
+        rgba(255,255,255,0.02)
+    );
+
+    border: 1px solid rgba(212,175,55,0.25);
+
+    color: #ffeab0;
+    line-height: 2;
+    font-size: 17px;
+    font-style: italic;
+}
+
+/* NAVIGATION */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.nav-btn {
+    padding: 11px 22px;
+
+    border-radius: 50px;
+    border: 1px solid #d4af37;
+
+    background: transparent;
+    color: #e7c76b;
+
+    cursor: pointer;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: #d4af37;
+    color: #100b05;
+}
+
+/* FINAL MESSAGE */
+
+.final {
+    margin-top: 25px;
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.04);
+
+    color: #fff0c7;
+    line-height: 1.8;
+}
+
+.final strong {
+    color: #e7c76b;
+    font-size: 20px;
+}
+
+/* CONFETTI */
+
+.confetti {
+    position: fixed;
+    top: -30px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    #main {
+        padding: 20px 10px;
+    }
+
+    .card {
+        padding: 25px 16px;
+    }
+
+    .photo-frame {
+        width: 135px;
+        height: 135px;
+    }
+
+    .name {
+        font-size: 29px;
+    }
+
+    .shayari {
+        font-size: 15px;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
-    <!-- Ambient Floating Petals -->
-    <div class="petal" style="width: 14px; height: 11px; left: 8%; animation-duration: 9s;"></div>
-    <div class="petal" style="width: 20px; height: 16px; left: 26%; animation-duration: 14s; animation-delay: 2s;"></div>
-    <div class="petal" style="width: 16px; height: 13px; left: 75%; animation-duration: 11s; animation-delay: 1s;"></div>
+<!-- FLOATING HEARTS -->
 
-    <!-- 1. INITIAL SURPRISE BUTTON -->
-    <div id="surprise-btn-container">
-        <button class="luxury-btn" onclick="openSurprise()">✨ OPEN SURPRISE ✨</button>
-    </div>
+<div class="heart" style="left:8%; animation-delay:0s;">❤️</div>
+<div class="heart" style="left:25%; animation-delay:2s;">💖</div>
+<div class="heart" style="left:45%; animation-delay:4s;">💕</div>
+<div class="heart" style="left:68%; animation-delay:1s;">💗</div>
+<div class="heart" style="left:88%; animation-delay:3s;">❤️</div>
 
-    <!-- 2. MAIN CONTENT CARD -->
-    <div class="luxury-card" id="main-card">
-        
-        <!-- SLIDE 1: Main Photo + Audio Video Player -->
-        <div class="slide active" id="slide-1">
-            <div class="profile-frame"><img src="sana pic.jpeg" alt="Sana Khan"></div>
-            <h1>HAPPY BIRTHDAY</h1><span class="name">SANA KHAN</span>
-            
+
+<!-- OPENING -->
+
+<section id="opening">
+
+    <button class="open-btn" onclick="openSurprise()">
+        ✨ OPEN YOUR SURPRISE ✨
+    </button>
+
+</section>
+
+
+<!-- MAIN WEBSITE -->
+
+<section id="main">
+
+    <div class="card">
+
+        <!-- SLIDE 1 -->
+
+        <div class="slide active" id="slide1">
+
+            <div class="photo-frame">
+                <img src="sana pic.jpeg" alt="Birthday Photo">
+            </div>
+
+            <div class="small-title">
+                ✨ A SPECIAL DAY ✨
+            </div>
+
+            <span class="name">
+                SANA
+            </span>
+
             <div class="video-box">
-                <video id="birthday-video" controls poster="sana pic.jpeg">
-                    <source src="fbwsxikh_1791130061_39702074066.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
+
+                <video id="birthdayVideo" controls poster="sana pic.jpeg">
+
+                    <source
+                        src="fbwsxikh_1791130061_39702074066.mp4"
+                        type="video/mp4">
+
                 </video>
+
             </div>
-            
-            <div class="note-box">
-                <p>"To the most elegant friend from college classes to campus laughs, you bring so much grace and brilliance into our lives. Happy Birthday, Sana! ✨🎓"</p>
+
+            <div class="message">
+
+                🎂 <b>Happy Birthday!</b> 🎂
+
+                <br><br>
+
+                To a very special person — may your
+                birthday be filled with happiness,
+                beautiful memories, success and
+                endless smiles. ❤️✨
+
             </div>
+
         </div>
 
-        <!-- SLIDE 2: Second Photo + Luxury Shayari -->
-        <div class="slide" id="slide-2">
-            <div class="profile-frame"><img src="sana 01.PNG" alt="Sana Khan 01"></div>
-            <h1>A SPECIAL WISH</h1><span class="name">FOR YOU</span>
-            <div class="shayari-box">
-                <p>
-                    "खुदा करे हर लम्हा आपके लिए हसीन हो जाए,<br>
-                    आपकी आँखों में जो भी ख्वाब हो वो हकीकत हो जाए।<br>
-                    मिले आपको ज़िंदगी की हर वो नायाब लक्ज़री,<br>
-                    कि कामयाबी खुद आकर आपके कदमों में खो जाए।" ✨🌹
-                </p>
+
+        <!-- SLIDE 2 -->
+
+        <div class="slide" id="slide2">
+
+            <div class="photo-frame">
+
+                <img src="sana 01.PNG" alt="Birthday Photo">
+
             </div>
+
+            <div class="small-title">
+                💌 A SPECIAL WISH
+            </div>
+
+            <span class="name">
+                FOR YOU
+            </span>
+
+            <div class="shayari">
+
+                "खुदा करे हर लम्हा आपके लिए हसीन हो जाए,<br>
+
+                आपकी आँखों में जो भी ख्वाब हो
+                वो हकीकत हो जाए।<br>
+
+                मिले आपको ज़िंदगी की हर वो नायाब खुशी,<br>
+
+                कि कामयाबी खुद आकर आपके
+                कदमों में खो जाए।"
+
+                <br><br>
+
+                ✨🌹❤️
+
+            </div>
+
         </div>
 
-        <!-- SLIDE 3: Third Photo + Future Goals Note -->
-        <div class="slide" id="slide-3">
-            <div class="profile-frame"><img src="sana 02.PNG" alt="Sana Khan 02"></div>
-            <h1>CHEERS TO FUTURE</h1><span class="name">SANA ✨</span>
-            <div class="note-box">
-                <p>"As BCA techies and college squad, may your code always compile without errors, and your life stay absolutely premium! Keep achieving your goals, and stay wonderful as always. 🥂🚀"</p>
+
+        <!-- SLIDE 3 -->
+
+        <div class="slide" id="slide3">
+
+            <div class="photo-frame">
+
+                <img src="sana 02.PNG" alt="Birthday Photo">
+
             </div>
+
+            <div class="small-title">
+                🚀 BEST WISHES
+            </div>
+
+            <span class="name">
+                SANA ✨
+            </span>
+
+            <div class="message">
+
+                May you achieve every dream
+                you have seen for yourself.
+
+                <br><br>
+
+                May your life always be filled with
+                happiness, success and wonderful
+                people.
+
+                <br><br>
+
+                And yes...
+
+                <br><br>
+
+                <b style="color:#e7c76b;">
+                    May your code always compile
+                    without errors! 😂💻
+                </b>
+
+            </div>
+
         </div>
 
-        <!-- Controls -->
-        <div class="btn-container">
-            <button class="nav-btn" onclick="changeSlide(-1)">Prev</button>
-            <button class="nav-btn" onclick="changeSlide(1)">Next</button>
+
+        <!-- FINAL -->
+
+        <div class="final">
+
+            💖 <strong>Once Again...</strong> 💖
+
+            <br><br>
+
+            🎂 Happy Birthday Sana! 🎂
+
+            <br>
+
+            ✨ Keep smiling. Keep shining. ✨
+
+            <br>
+
+            ❤️ May all your dreams come true! ❤️
+
         </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+            <button class="nav-btn" onclick="changeSlide(-1)">
+                ← PREV
+            </button>
+
+            <button class="nav-btn" onclick="changeSlide(1)">
+                NEXT →
+            </button>
+
+        </div>
+
     </div>
 
-    <!-- 🧠 FULL JAVASCRIPT BLOCK -->
-    <script>
-        let currentSlide = 1;
-        const totalSlides = 3;
+</section>
 
-        function openSurprise() {
-            const btnContainer = document.getElementById('surprise-btn-container');
-            const card = document.getElementById('main-card');
-            const video = document.getElementById('birthday-video');
 
-            btnContainer.style.opacity = '0';
-            btnContainer.style.transform = 'scale(0.8)';
-            
-            setTimeout(() => {
-                btnContainer.style.display = 'none';
-                card.style.display = 'block';
-                card.offsetHeight; 
-                card.classList.add('reveal');
-                
-                if(video) {
-                    video.play().catch(e => console.log("Autoplay handled."));
-                }
-            }, 500);
-        }
+<script>
 
-        document.addEventListener("DOMContentLoaded", function() {
-            window.changeSlide = function(direction) {
-                document.getElementById(`slide-${currentSlide}`).classList.remove('active');
-                
-                if(currentSlide === 1) {
-                    const video = document.getElementById('birthday-video');
-                    if(video) video.pause();
-                }
+let currentSlide = 1;
 
-                currentSlide += direction;
-                if (currentSlide > totalSlides) currentSlide = 1;
-                if (currentSlide < 1) currentSlide = totalSlides;
+function openSurprise() {
+
+    document.getElementById("opening").style.display = "none";
+
+    document.getElementById("main").style.display = "block";
+
+    createConfetti();
+
+    playBirthdayMusic();
+
+}
+
+
+/* SLIDES */
+
+function changeSlide(direction) {
+
+    document
+        .getElementById("slide" + currentSlide)
+        .classList.remove("active");
+
+    currentSlide += direction;
+
+    if (currentSlide > 3) {
+        currentSlide = 1;
+    }
+
+    if (currentSlide < 1) {
+        currentSlide = 3;
+    }
+
+    document
+        .getElementById("slide" + currentSlide)
+        .classList.add("active");
+
+}
+
+
+/* CONFETTI */
+
+function createConfetti() {
+
+    const emojis = [
+        "🎉",
+        "🎊",
+        "✨",
+        "💖",
+        "💕",
+        "🌹",
+        "⭐"
+    ];
+
+    for (let i = 0; i < 100; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.innerHTML =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.fontSize =
+            (Math.random() * 15 + 12) + "px";
+
+        piece.style.animationDuration =
+            (Math.random() * 2 + 2) + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 5000);
+
+    }
+
+}
+
+
+/* BIRTHDAY MUSIC */
+
+function playBirthdayMusic() {
+
+    const AudioContext =
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+    if (!AudioContext) return;
+
+    const audio = new AudioContext();
+
+    const notes = [
+        261.63,
+        261.63,
+        293.66,
+        261.63,
+        349.23,
+        329.63,
+
+        261.63,
+        261.63,
+        293.66,
+        261.63,
+        392.00,
+        349.23
+    ];
+
+    let time = audio.currentTime;
+
+    notes.forEach((frequency) => {
+
+        const oscillator =
+            audio.createOscillator();
+
+        const gain =
+            audio.createGain();
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.value =
+            frequency;
+
+        gain.gain.setValueAtTime(
+            0.12,
+            time
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.01,
+            time + 0.45
+        );
+
+        oscillator.connect(gain);
+
+        gain.connect(audio.destination);
+
+        oscillator.start(time);
+
+        oscillator.stop(time + 0.45);
+
+        time += 0.48;
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
