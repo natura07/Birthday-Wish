@@ -53,7 +53,7 @@
 
         /* Glowing Circular Profile Frame */
         .profile-frame {
-            width: 130px; height: 130px; margin: 0 auto 20px auto; border-radius: 50%; padding: 4px;
+            width: 140px; height: 140px; margin: 0 auto 20px auto; border-radius: 50%; padding: 4px;
             background: linear-gradient(45deg, #ffe57f, #d4af37, #aa7c11); box-shadow: 0 0 35px rgba(212, 175, 55, 0.7);
         }
         .profile-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid #0d0a08; }
@@ -62,7 +62,7 @@
         .name { font-family: 'Cinzel', serif; font-size: 2.3rem; font-weight: 700; letter-spacing: 3px; background: linear-gradient(45deg, #ffe57f, #d4af37, #b8860b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; display: block; }
         
         /* Slides Logic */
-        .slide { display: none; animation: slideReveal 0.8s ease-in-out forwards; }
+        .slide { display: none; animation: slideReveal 0.6s ease-in-out forwards; }
         .slide.active { display: block; }
         @keyframes slideReveal { from { opacity: 0; } to { opacity: 1; } }
 
@@ -119,12 +119,11 @@
     <!-- 2. MAIN CONTENT CARD -->
     <div class="luxury-card" id="main-card">
         
-        <!-- SLIDE 1: Main Photo + Audio Video Player (Autoplay via JS) -->
+        <!-- SLIDE 1: Main Photo + Audio Video Player -->
         <div class="slide active" id="slide-1">
             <div class="profile-frame"><img src="sana pic.jpeg" alt="Sana Khan"></div>
             <h1>HAPPY BIRTHDAY</h1><span class="name">SANA KHAN</span>
             
-            <!-- Video Player (Plays with Audio automatically after button click) -->
             <div class="video-box">
                 <video id="birthday-video" controls poster="sana pic.jpeg">
                     <source src="fbwsxikh_1791130061_39702074066.mp4" type="video/mp4">
@@ -167,6 +166,7 @@
         </div>
     </div>
 
+    <!-- 🧠 FULL JAVASCRIPT BLOCK -->
     <script>
         let currentSlide = 1;
         const totalSlides = 3;
@@ -185,20 +185,21 @@
                 card.offsetHeight; 
                 card.classList.add('reveal');
                 
-                // 🔊 JavaScript magic: Plays the video WITH AUDIO automatically on click
                 if(video) {
-                    video.play().catch(e => console.log("Autoplay context handled."));
+                    video.play().catch(e => console.log("Autoplay handled."));
                 }
             }, 500);
         }
 
-        function changeSlide(direction) {
-            document.getElementById(`slide-${currentSlide}`).classList.remove('active');
-            
-            // If leaving slide 1, pause the video automatically
-            if(currentSlide === 1) {
-                const video = document.getElementById('birthday-video');
-                if(video) video.pause();
-            }
+        document.addEventListener("DOMContentLoaded", function() {
+            window.changeSlide = function(direction) {
+                document.getElementById(`slide-${currentSlide}`).classList.remove('active');
+                
+                if(currentSlide === 1) {
+                    const video = document.getElementById('birthday-video');
+                    if(video) video.pause();
+                }
 
-            currentSlide += direction;
+                currentSlide += direction;
+                if (currentSlide > totalSlides) currentSlide = 1;
+                if (currentSlide < 1) currentSlide = totalSlides;
