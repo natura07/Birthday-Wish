@@ -1,804 +1,613 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Happy Birthday Sana ❤️</title>
+<title>Happy Birthday Sana ❤️</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #ffe6f0, #fff5d7);
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe6f0, #fff5d7);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-        /* ================= OPENING SCREEN ================= */
+#opening {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
 
-        #opening {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
+.opening-box {
+    background: rgba(255,255,255,0.95);
+    padding: 35px 25px;
+    border-radius: 25px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+}
 
-        .opening-box {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 35px 25px;
-            border-radius: 25px;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
-        }
+.opening-box h1 {
+    color: #e91e63;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
 
-        .opening-box h1 {
-            color: #e91e63;
-            font-size: 38px;
-            margin-bottom: 20px;
-        }
+.opening-box p {
+    color: #555;
+    font-size: 18px;
+    line-height: 1.7;
+}
 
-        .opening-box p {
-            color: #555;
-            font-size: 18px;
-            line-height: 1.7;
-        }
+.open-btn {
+    margin-top: 20px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #e91e63;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
 
-        .open-btn {
-            margin-top: 20px;
-            padding: 14px 30px;
-            border: none;
-            border-radius: 30px;
-            background: #e91e63;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
-        }
+#main {
+    display: none;
+    min-height: 100vh;
+    padding: 30px 15px 50px;
+}
 
-        .open-btn:hover {
-            transform: scale(1.05);
-        }
+.container {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
 
-        /* ================= MAIN ================= */
+.title {
+    color: #e91e63;
+    font-size: 42px;
+}
 
-        #main {
-            display: none;
-            min-height: 100vh;
-            padding: 30px 15px 50px;
-        }
+.party {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 25px;
+}
 
-        .container {
-            max-width: 850px;
-            margin: auto;
-            text-align: center;
-        }
+.slide {
+    display: none;
+    background: rgba(255,255,255,0.95);
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
 
-        .title {
-            color: #e91e63;
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
+.slide.active {
+    display: block;
+}
 
-        .party {
-            font-size: 20px;
-            color: #555;
-            margin-bottom: 25px;
-        }
+.slide h2 {
+    color: #e91e63;
+    font-size: 28px;
+}
 
-        /* ================= SLIDES ================= */
+.slide p {
+    color: #444;
+    font-size: 18px;
+    line-height: 1.8;
+}
 
-        .slide {
-            display: none;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 25px;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-            animation: fadeIn 0.5s ease;
-        }
+/* PHOTOS */
+.photo {
+    width: 100%;
+    max-width: 600px;
+    max-height: 650px;
+    object-fit: contain;
+    border-radius: 18px;
+    margin: 15px auto 25px;
+    display: block;
+}
 
-        .slide.active {
-            display: block;
-        }
+/* VIDEO */
+video {
+    width: 100%;
+    max-width: 750px;
+    border-radius: 18px;
+    background: #000;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
+/* BUTTONS */
+.navigation {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.nav-btn {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 25px;
+    background: #e91e63;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
 
-        .slide h2 {
-            color: #e91e63;
-            margin-top: 0;
-            font-size: 28px;
-        }
+#counter {
+    font-weight: bold;
+    color: #555;
+}
 
-        .slide p {
-            color: #444;
-            font-size: 18px;
-            line-height: 1.8;
-        }
+/* MUSIC BUTTON */
+#musicButton {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 999;
+    border: none;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+    cursor: pointer;
+    background: white;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.2);
+}
 
-        /* ================= FIRST IMAGE ================= */
+/* CONFETTI */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
 
-        .first-photo {
-            width: 260px;
-            height: 260px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 6px solid #ffd54f;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            margin: 15px auto 25px;
-            display: block;
-        }
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
 
-        /* ================= OTHER IMAGES ================= */
+@media (max-width:600px) {
 
-        .normal-photo {
-            width: 100%;
-            max-width: 600px;
-            max-height: 600px;
-            object-fit: contain;
-            border-radius: 15px;
-            margin: 15px auto 25px;
-            display: block;
-        }
+    .opening-box h1 {
+        font-size: 30px;
+    }
 
-        /* ================= VIDEO ================= */
+    .opening-box p {
+        font-size: 16px;
+    }
 
-        video {
-            width: 100%;
-            max-width: 750px;
-            border-radius: 18px;
-            margin-top: 10px;
-            background: #000;
-        }
+    .title {
+        font-size: 32px;
+    }
 
-        /* ================= BUTTONS ================= */
+    .slide {
+        padding: 18px;
+    }
 
-        .navigation {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+    .slide h2 {
+        font-size: 24px;
+    }
 
-        .nav-btn {
-            padding: 12px 22px;
-            border: none;
-            border-radius: 25px;
-            background: #e91e63;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .nav-btn:hover {
-            transform: scale(1.05);
-        }
-
-        #counter {
-            font-size: 16px;
-            color: #555;
-            font-weight: bold;
-        }
-
-        /* ================= MUSIC BUTTON ================= */
-
-        #musicButton {
-            position: fixed;
-            right: 18px;
-            bottom: 18px;
-            z-index: 999;
-            border: none;
-            border-radius: 50%;
-            width: 52px;
-            height: 52px;
-            font-size: 22px;
-            cursor: pointer;
-            background: white;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
-        }
-
-        /* ================= CONFETTI ================= */
-
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            top: -10px;
-            z-index: 9999;
-            pointer-events: none;
-            animation: fall linear forwards;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(110vh) rotate(720deg);
-            }
-        }
-
-        /* ================= MOBILE ================= */
-
-        @media (max-width: 600px) {
-
-            .opening-box h1 {
-                font-size: 30px;
-            }
-
-            .opening-box p {
-                font-size: 16px;
-            }
-
-            .title {
-                font-size: 32px;
-            }
-
-            .party {
-                font-size: 17px;
-            }
-
-            .slide {
-                padding: 18px;
-            }
-
-            .slide h2 {
-                font-size: 24px;
-            }
-
-            .slide p {
-                font-size: 16px;
-            }
-
-            .first-photo {
-                width: 220px;
-                height: 220px;
-            }
-        }
-    </style>
+    .slide p {
+        font-size: 16px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- ================= BACKGROUND MUSIC ================= -->
+<!-- MUSIC -->
+<audio id="birthdayMusic" loop preload="auto">
+    <source
+        src="s%E2%80%8B%E2%80%8Bahiba-birthday.mp3.mpeg"
+        type="audio/mpeg">
+</audio>
 
-    <audio id="birthdayMusic" loop preload="auto">
 
-        <!-- EXACT FILE NAME FROM GITHUB -->
-        <source
-            src="sahiba-birthday.mp3.mpeg"
-            type="audio/mpeg">
+<!-- OPENING -->
+<section id="opening">
 
-        Your browser does not support audio.
+<div class="opening-box">
 
-    </audio>
+<h1>🎂 Happy Birthday Sana! ❤️</h1>
 
+<p>
+Hi Sana! 👋
+<br><br>
 
-    <!-- ================= OPENING SCREEN ================= -->
+I'm Sahil. 😊
+<br><br>
 
-    <section id="opening">
+This little surprise is just a small way
+to wish you on your special day. ✨
 
-        <div class="opening-box">
+<br>
+I hope it brings a smile to your face. ❤️
 
-            <h1>🎂 Happy Birthday Sana! ❤️</h1>
+<br><br>
 
-            <p>
+And yes… ek baat aur! 😄
 
-                Hi Sana! 👋
+<br>
 
-                <br><br>
+Birthday ki party toh banti hai 🎂😂
 
-                I'm Sahil. 😊
+<br>
 
-                <br><br>
+So, meri birthday treat pending hai…
+<br>
+don't forget! 😉🍕
 
-                This little surprise is just a small way
-                to wish you on your special day. ✨
+</p>
 
-                <br>
+<button class="open-btn" onclick="openSurprise()">
+💝 Open Your Surprise
+</button>
 
-                I hope it brings a smile to your face. ❤️
+</div>
 
-                <br><br>
+</section>
 
-                And yes… ek baat aur! 😄
 
-                <br>
+<!-- MAIN -->
+<section id="main">
 
-                Birthday ki party toh banti hai 🎂😂
+<div class="container">
 
-                <br>
+<h1 class="title">
+🎉 Happy Birthday Sana! 🎂❤️
+</h1>
 
-                So, meri birthday treat pending hai…
+<div class="party">
+Have a beautiful and wonderful day! ✨
+</div>
 
-                <br>
 
-                don't forget! 😉🍕
+<!-- 1ST PHOTO -->
+<div class="slide active">
 
-            </p>
+<h2>🌸 A Little Birthday Wish 🌸</h2>
 
-            <button
-                class="open-btn"
-                onclick="openSurprise()">
+<img
+src="sana pic.jpeg"
+class="photo"
+alt="Sana">
 
-                💝 Open Your Surprise
+<p>
+Wishing you a very Happy Birthday! 🎂❤️
 
-            </button>
+<br><br>
 
-        </div>
+May your day be filled with happiness,
+smiles and lots of beautiful moments. ✨
 
-    </section>
+<br><br>
 
+Keep smiling and enjoy your special day! 😊
+</p>
 
-    <!-- ================= MAIN WEBSITE ================= -->
+</div>
 
-    <section id="main">
 
-        <div class="container">
+<!-- 2ND PHOTO -->
+<div class="slide">
 
-            <h1 class="title">
-                🎉 Happy Birthday Sana! 🎂❤️
-            </h1>
+<h2>✨ Some Beautiful Moments ✨</h2>
 
-            <div class="party">
-                Have a beautiful and wonderful day! ✨
-            </div>
+<img
+src="sana 01.PNG"
+class="photo"
+alt="Sana">
 
+<p>
+Hope this birthday brings you
+many reasons to smile. ❤️
 
-            <!-- ================= IMAGE 1 ================= -->
+<br><br>
 
-            <div class="slide active">
+Stay happy, stay positive
+and keep enjoying every little moment. 🌸
+</p>
 
-                <h2>
-                    🌸 A Little Birthday Wish 🌸
-                </h2>
+</div>
 
-                <!-- FIRST IMAGE -->
-                <img
-                    src="sana 01.PNG"
-                    class="first-photo"
-                    alt="Sana">
 
-                <p>
+<!-- 3RD PHOTO -->
+<div class="slide">
 
-                    Wishing you a very Happy Birthday! 🎂❤️
+<h2>💌 One More Thing...</h2>
 
-                    <br><br>
+<img
+src="sana 02.PNG"
+class="photo"
+alt="Sana">
 
-                    May your day be filled with happiness,
-                    smiles and lots of beautiful moments. ✨
+<p>
 
-                    <br><br>
+Sometimes you meet someone and
+talking to them just feels nice. ❤️
 
-                    Keep smiling and enjoy your special day! 😊
+<br><br>
 
-                </p>
+Talking to you has felt a little like that.
 
-            </div>
+<br><br>
 
+It's just the beginning,
+and I hope there are many more
+good conversations and beautiful memories
+ahead. ✨
 
-            <!-- ================= IMAGE 2 ================= -->
+<br><br>
 
-            <div class="slide">
+Stay happy, keep smiling! 😊
 
-                <h2>
-                    ✨ Some Beautiful Moments ✨
-                </h2>
+<br><br>
 
-                <!-- SECOND IMAGE -->
-                <img
-                    src="sana 02.PNG"
-                    class="normal-photo"
-                    alt="Sana">
+<b>
+Happy Birthday! 🎂❤️
+</b>
 
-                <p>
+</p>
 
-                    Hope this birthday brings you
-                    many reasons to smile. ❤️
+</div>
 
-                    <br><br>
 
-                    Stay happy, stay positive
-                    and keep enjoying every little moment. 🌸
+<!-- 4TH VIDEO -->
+<div class="slide">
 
-                </p>
+<h2>🎬 A Little Surprise For You ❤️</h2>
 
-            </div>
+<video
+id="birthdayVideo"
+controls
+playsinline
+preload="auto">
 
+<source
+src="flwsxnkh__1791130061_39702074066.mp4"
+type="video/mp4">
 
-            <!-- ================= IMAGE 3 ================= -->
+Your browser does not support video.
 
-            <div class="slide">
+</video>
 
-                <h2>
-                    💌 One More Thing...
-                </h2>
+<p>
 
-                <!-- THIRD IMAGE -->
-                <img
-                    src="sana pic.jpeg"
-                    class="normal-photo"
-                    alt="Sana">
+Hope you liked this little surprise! ❤️
 
-                <p>
+<br><br>
 
-                    Sometimes you meet someone and
-                    talking to them just feels nice. ❤️
+Once again...
 
-                    <br><br>
+<br>
 
-                    Talking to you has felt a little like that.
+<b>
+Happy Birthday Sana! 🎂🎉❤️
+</b>
 
-                    <br>
+</p>
 
-                    It's just the beginning,
-                    and I hope there are many more
-                    good conversations and beautiful memories
-                    ahead. ✨
+</div>
 
-                    <br><br>
 
-                    Stay happy, keep smiling! 😊
+<!-- NAVIGATION -->
+<div class="navigation">
 
-                    <br><br>
+<button
+class="nav-btn"
+onclick="changeSlide(-1)">
+⬅️ Previous
+</button>
 
-                    And once again,
+<span id="counter">
+1 / 4
+</span>
 
-                    <br>
+<button
+class="nav-btn"
+onclick="changeSlide(1)">
+Next ➡️
+</button>
 
-                    <b>
-                        Happy Birthday! 🎂❤️
-                    </b>
+</div>
 
-                </p>
+</div>
+</section>
 
-            </div>
 
+<!-- MUSIC BUTTON -->
+<button
+id="musicButton"
+onclick="toggleMusic()"
+title="Music">
+🔊
+</button>
 
-            <!-- ================= VIDEO 4 ================= -->
 
-            <div class="slide">
+<script>
 
-                <h2>
-                    🎬 A Little Surprise For You ❤️
-                </h2>
+let currentSlide = 1;
+const totalSlides = 4;
 
-                <video
-                    id="birthdayVideo"
-                    controls
-                    playsinline
-                    preload="auto">
+const music =
+document.getElementById("birthdayMusic");
 
-                    <source
-                        src="flwsxnkh__1791130061_39702074066.mp4"
-                        type="video/mp4">
+const video =
+document.getElementById("birthdayVideo");
 
-                    Your browser does not support video.
+const musicButton =
+document.getElementById("musicButton");
 
-                </video>
 
-                <p>
+/* OPEN SURPRISE */
 
-                    Hope you liked this little surprise! ❤️
+function openSurprise() {
 
-                    <br><br>
+    document.getElementById("opening").style.display = "none";
 
-                    Once again...
+    document.getElementById("main").style.display = "block";
 
-                    <br>
+    createConfetti();
 
-                    <b>
-                        Happy Birthday Sana! 🎂🎉❤️
-                    </b>
+    music.volume = 0.5;
 
-                </p>
+    music.play()
+    .then(function() {
+        musicButton.innerText = "🔊";
+    })
+    .catch(function(error) {
 
-            </div>
+        console.log("Music error:", error);
 
+        musicButton.innerText = "🎵";
 
-            <!-- ================= NAVIGATION ================= -->
+    });
+}
 
-            <div class="navigation">
 
-                <button
-                    class="nav-btn"
-                    onclick="changeSlide(-1)">
+/* CHANGE SLIDE */
 
-                    ⬅️ Previous
+function changeSlide(direction) {
 
-                </button>
+    currentSlide += direction;
 
-                <span id="counter">
-                    1 / 4
-                </span>
+    if (currentSlide > totalSlides) {
+        currentSlide = 1;
+    }
 
-                <button
-                    class="nav-btn"
-                    onclick="changeSlide(1)">
+    if (currentSlide < 1) {
+        currentSlide = totalSlides;
+    }
 
-                    Next ➡️
+    const slides =
+    document.querySelectorAll(".slide");
 
-                </button>
+    slides.forEach(function(slide) {
+        slide.classList.remove("active");
+    });
 
-            </div>
+    slides[currentSlide - 1].classList.add("active");
 
-        </div>
 
-    </section>
+    /* VIDEO */
 
+    if (currentSlide === 4) {
 
-    <!-- ================= MUSIC BUTTON ================= -->
+        video.currentTime = 0;
 
-    <button
-        id="musicButton"
-        onclick="toggleMusic()"
-        title="Music">
+        video.play()
+        .catch(function(error) {
 
-        🔊
+            console.log("Video autoplay blocked:", error);
 
-    </button>
+        });
 
+    } else {
 
-    <!-- ================= JAVASCRIPT ================= -->
+        video.pause();
 
-    <script>
+    }
 
-        let currentSlide = 1;
+    /* MUSIC NEVER STOPS */
 
-        const totalSlides = 4;
+    document.getElementById("counter").innerText =
+    currentSlide + " / " + totalSlides;
+}
 
-        const music =
-            document.getElementById("birthdayMusic");
 
-        const video =
-            document.getElementById("birthdayVideo");
+/* MUSIC ON/OFF */
 
-        const musicButton =
-            document.getElementById("musicButton");
+function toggleMusic() {
 
+    if (music.paused) {
 
-        /* ================= OPEN SURPRISE ================= */
+        music.play()
+        .then(function() {
 
-        function openSurprise() {
+            musicButton.innerText = "🔊";
 
-            document.getElementById("opening")
-                .style.display = "none";
+        });
 
-            document.getElementById("main")
-                .style.display = "block";
+    } else {
 
+        music.pause();
 
-            /* Confetti */
+        musicButton.innerText = "🔇";
 
-            createConfetti();
+    }
+}
 
 
-            /* Music */
+/* CONFETTI */
 
-            music.volume = 0.5;
+function createConfetti() {
 
-            music.load();
+    for (let i = 0; i < 80; i++) {
 
-            music.play()
+        const confetti =
+        document.createElement("div");
 
-                .then(function () {
+        confetti.classList.add("confetti");
 
-                    musicButton.innerText = "🔊";
+        confetti.style.left =
+        Math.random() * 100 + "vw";
 
-                })
+        confetti.style.animationDuration =
+        (Math.random() * 3 + 2) + "s";
 
-                .catch(function (error) {
+        confetti.style.animationDelay =
+        Math.random() * 2 + "s";
 
-                    console.log(
-                        "Music could not start:",
-                        error
-                    );
+        confetti.style.background =
+        getRandomColor();
 
-                    musicButton.innerText = "🎵";
+        document.body.appendChild(confetti);
 
-                });
+        setTimeout(function() {
+            confetti.remove();
+        }, 6000);
+    }
+}
 
-        }
 
+/* CONFETTI COLORS */
 
-        /* ================= CHANGE SLIDE ================= */
+function getRandomColor() {
 
-        function changeSlide(direction) {
+    const colors = [
+        "#ff4081",
+        "#ffd54f",
+        "#7c4dff",
+        "#00bcd4",
+        "#4caf50",
+        "#ff5722"
+    ];
 
-            currentSlide += direction;
+    return colors[
+        Math.floor(Math.random() * colors.length)
+    ];
+}
 
-
-            if (currentSlide > totalSlides) {
-
-                currentSlide = 1;
-
-            }
-
-
-            if (currentSlide < 1) {
-
-                currentSlide = totalSlides;
-
-            }
-
-
-            const slides =
-                document.querySelectorAll(".slide");
-
-
-            slides.forEach(function (slide) {
-
-                slide.classList.remove("active");
-
-            });
-
-
-            slides[currentSlide - 1]
-                .classList.add("active");
-
-
-            /*
-                IMPORTANT:
-
-                Music will continue playing
-                on every slide.
-
-                Even when video opens,
-                background music will NOT stop.
-            */
-
-
-            if (currentSlide === 4) {
-
-                video.currentTime = 0;
-
-                video.play()
-
-                    .catch(function (error) {
-
-                        console.log(
-                            "Video autoplay blocked:",
-                            error
-                        );
-
-                    });
-
-            }
-
-            else {
-
-                /* Stop video when leaving slide 4 */
-
-                video.pause();
-
-            }
-
-
-            document.getElementById("counter")
-                .innerText =
-                currentSlide + " / " + totalSlides;
-
-        }
-
-
-        /* ================= MUSIC ON/OFF ================= */
-
-        function toggleMusic() {
-
-            if (music.paused) {
-
-                music.play()
-
-                    .then(function () {
-
-                        musicButton.innerText = "🔊";
-
-                    })
-
-                    .catch(function (error) {
-
-                        console.log(
-                            "Music could not play:",
-                            error
-                        );
-
-                    });
-
-            }
-
-            else {
-
-                music.pause();
-
-                musicButton.innerText = "🔇";
-
-            }
-
-        }
-
-
-        /* ================= CONFETTI ================= */
-
-        function createConfetti() {
-
-            for (let i = 0; i < 80; i++) {
-
-                const confetti =
-                    document.createElement("div");
-
-                confetti.classList.add("confetti");
-
-
-                confetti.style.left =
-                    Math.random() * 100 + "vw";
-
-
-                confetti.style.animationDuration =
-                    (Math.random() * 3 + 2) + "s";
-
-
-                confetti.style.animationDelay =
-                    Math.random() * 2 + "s";
-
-
-                confetti.style.background =
-                    getRandomColor();
-
-
-                document.body.appendChild(confetti);
-
-
-                setTimeout(function () {
-
-                    confetti.remove();
-
-                }, 6000);
-
-            }
-
-        }
-
-
-        /* ================= CONFETTI COLORS ================= */
-
-        function getRandomColor() {
-
-            const colors = [
-
-                "#ff4081",
-                "#ffd54f",
-                "#7c4dff",
-                "#00bcd4",
-                "#4caf50",
-                "#ff5722"
-
-            ];
-
-
-            return colors[
-                Math.floor(
-                    Math.random() * colors.length
-                )
-            ];
-
-        }
-
-    </script>
+</script>
 
 </body>
 </html>
