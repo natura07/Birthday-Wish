@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Happy Birthday Sana ❤️</title>
 
 <style>
@@ -21,7 +20,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Background */
 body::before {
     content: "";
     position: fixed;
@@ -32,7 +30,7 @@ body::before {
     pointer-events: none;
 }
 
-/* Opening Screen */
+/* Opening */
 #opening {
     min-height: 100vh;
     display: flex;
@@ -80,7 +78,7 @@ body::before {
     box-shadow: 0 20px 70px rgba(0,0,0,0.8);
 }
 
-/* Slide */
+/* Slides */
 .slide {
     display: none;
     animation: showSlide 0.7s ease;
@@ -101,7 +99,19 @@ body::before {
     }
 }
 
-/* Full Photo */
+/* FIRST PHOTO ONLY */
+.first-photo {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 22px;
+    border: 4px solid #ffd86b;
+    box-shadow: 0 0 35px rgba(255,216,107,0.65);
+}
+
+/* Other photos */
 .photo {
     width: 100%;
     max-height: 430px;
@@ -172,7 +182,7 @@ body::before {
     display: block;
 }
 
-/* Navigation */
+/* Buttons */
 .buttons {
     display: flex;
     justify-content: center;
@@ -218,6 +228,11 @@ body::before {
         padding: 20px 12px;
     }
 
+    .first-photo {
+        width: 220px;
+        height: 220px;
+    }
+
     .photo {
         max-height: 390px;
     }
@@ -255,7 +270,7 @@ body::before {
 
             <img
                 src="sana pic.jpeg"
-                class="photo"
+                class="first-photo"
                 alt="Birthday Photo"
             >
 
@@ -337,38 +352,31 @@ body::before {
             >
 
             <div class="title">
-                💫 BEST WISHES 💫
+                💫 A SPECIAL NOTE 💫
             </div>
 
             <div class="name">
-                KEEP SHINING ✨
+                FOR MY FRIEND ❤️
             </div>
 
             <div class="note">
 
-                Life is a beautiful journey,
-                and I hope every new chapter
-                brings you closer to your dreams.
+                Kabhi socha nahi tha ki college ke safar mein
+                hum itne achhe dost ban jayenge.
 
                 <br><br>
 
-                Keep smiling 😊  
-                Keep believing in yourself 💫  
-                Keep achieving your goals 🚀
+                Shuruaat shayad ek normal si dosti se hui,
+                lekin dheere-dheere tum ek special friend ban gayi.
 
                 <br><br>
 
-                And yes...
+                Bas ye dosti hamesha aise hi bani rahe,
+                bahut saari hasi, masti aur yaadein banti rahein. ❤️
 
                 <br><br>
 
-                May your BCA journey be full of
-                success and may your code
-                always compile without errors! 😂💻
-
-                <br><br>
-
-                ❤️ Stay happy. Stay wonderful. ❤️
+                Happy Birthday, Dost! 🎂✨
 
             </div>
 
@@ -395,9 +403,10 @@ body::before {
                     poster="sana pic.jpeg"
                 >
 
-                   
-                        <source src="flwsxnkh__1791130061_39702074066.mp4" type="video/mp4">
-                        
+                    <source
+                        src="flwsxnkh__1791130061_39702074066.mp4"
+                        type="video/mp4"
+                    >
 
                     Your browser does not support this video.
 
@@ -422,7 +431,6 @@ body::before {
 
 
         <!-- BUTTONS -->
-
         <div class="buttons">
 
             <button class="nav-btn" onclick="changeSlide(-1)">
@@ -447,7 +455,6 @@ const totalSlides = 4;
 
 
 /* OPEN SURPRISE */
-
 function openSurprise() {
 
     document.getElementById("opening").style.display = "none";
@@ -457,42 +464,46 @@ function openSurprise() {
     createConfetti();
 
     playBirthdayMusic();
+
 }
 
 
 /* SLIDES */
-
 function changeSlide(direction) {
 
     document
         .getElementById("slide" + currentSlide)
         .classList.remove("active");
 
-    /* Stop video when leaving video slide */
+
     const video = document.getElementById("birthdayVideo");
 
     if (video) {
         video.pause();
     }
 
+
     currentSlide += direction;
+
 
     if (currentSlide > totalSlides) {
         currentSlide = 1;
     }
 
+
     if (currentSlide < 1) {
         currentSlide = totalSlides;
     }
 
+
     document
         .getElementById("slide" + currentSlide)
         .classList.add("active");
+
 }
 
 
 /* CONFETTI */
-
 function createConfetti() {
 
     const emojis = [
@@ -504,6 +515,7 @@ function createConfetti() {
         "🌹",
         "⭐"
     ];
+
 
     for (let i = 0; i < 100; i++) {
 
@@ -525,15 +537,17 @@ function createConfetti() {
 
         document.body.appendChild(piece);
 
+
         setTimeout(function() {
             piece.remove();
         }, 5000);
+
     }
+
 }
 
 
 /* BIRTHDAY MUSIC */
-
 function playBirthdayMusic() {
 
     try {
@@ -546,6 +560,7 @@ function playBirthdayMusic() {
 
         const audio = new AudioContext();
 
+
         const notes = [
             261.63, 261.63, 293.66,
             261.63, 349.23, 329.63,
@@ -553,7 +568,9 @@ function playBirthdayMusic() {
             261.63, 392.00, 349.23
         ];
 
+
         let time = audio.currentTime;
+
 
         notes.forEach(function(frequency) {
 
@@ -563,28 +580,34 @@ function playBirthdayMusic() {
             const gain =
                 audio.createGain();
 
+
             oscillator.type = "sine";
 
             oscillator.frequency.value =
                 frequency;
+
 
             gain.gain.setValueAtTime(
                 0.12,
                 time
             );
 
+
             gain.gain.exponentialRampToValueAtTime(
                 0.01,
                 time + 0.45
             );
 
+
             oscillator.connect(gain);
 
             gain.connect(audio.destination);
 
+
             oscillator.start(time);
 
             oscillator.stop(time + 0.45);
+
 
             time += 0.48;
 
@@ -595,6 +618,7 @@ function playBirthdayMusic() {
         console.log("Music could not start.");
 
     }
+
 }
 
 </script>
